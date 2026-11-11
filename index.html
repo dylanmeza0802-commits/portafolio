@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dylan Meza | Ingeniería Informática y de Sistemas · Software, Datos e IA</title>
+  <meta name="description" content="Portafolio de Dylan Meza, egresado de Ingeniería Informática y de Sistemas (UNSAAC). Proyectos en automatización con Odoo, machine learning, visión por computador y desarrollo web.">
+  <meta name="theme-color" content="#0a0d14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dylan Meza | Portafolio">
+  <meta property="og:description" content="Software, datos e inteligencia artificial. Proyectos de automatización, ML y desarrollo web.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0d14'/%3E%3Ctext x='32' y='42' font-size='26' font-family='monospace' font-weight='700' text-anchor='middle' fill='%232dd4bf'%3EDM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Dylan Meza","jobTitle":"Ingeniero Informático y de Sistemas","alumniOf":"Universidad Nacional de San Antonio Abad del Cusco","address":{"@type":"PostalAddress","addressLocality":"Cusco","addressCountry":"PE"}}
+  </script>
+  <style>
+    :root{
+      --bg:#0a0d14; --bg2:#0f1420; --card:#121826; --line:#1f2937; --line2:#2b3648;
+      --text:#e8ecf3; --muted:#8b97ab; --accent:#2dd4bf; --accent2:#818cf8; --warn:#fbbf24;
+      --radius:18px; --maxw:1120px;
+      --grad:linear-gradient(110deg,var(--accent),var(--accent2));
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:84px}
+    body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:var(--accent);color:#04201c}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+    .mono{font-family:'DM Mono',monospace}
+    .skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#04201c;padding:8px 14px;border-radius:8px;z-index:100;font-weight:700}
+    .skip:focus{left:8px}
+
+    /* fondo */
+    .grid-bg{position:fixed;inset:0;z-index:-2;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.28;mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%)}
+    .glow{position:fixed;z-index:-1;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.16;pointer-events:none}
+    .glow.g1{background:var(--accent);top:-160px;left:-120px}
+    .glow.g2{background:var(--accent2);bottom:-180px;right:-140px}
+    .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:60}
+
+    /* header */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px max(20px,calc((100% - var(--maxw))/2));background:rgba(10,13,20,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+    .topbar.scrolled{border-color:var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em;font-size:.85rem;line-height:1.2}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--grad);color:#04201c;font-weight:800;font-size:.85rem;letter-spacing:0}
+    .brand-sub{display:block;font-family:'DM Mono',monospace;font-weight:400;font-size:.62rem;color:var(--muted);letter-spacing:.12em}
+    nav{display:flex;align-items:center;gap:6px}
+    nav a{padding:8px 14px;border-radius:999px;font-size:.9rem;font-weight:500;color:var(--muted);transition:.2s}
+    nav a:hover,nav a.active{color:var(--text);background:rgba(255,255,255,.06)}
+    nav a.nav-cta{background:var(--text);color:var(--bg);font-weight:700}
+    nav a.nav-cta:hover{background:var(--accent);color:#04201c}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line2);color:var(--text);width:42px;height:42px;border-radius:10px;font-size:1.2rem;cursor:pointer}
+
+    /* layout */
+    .section{max-width:var(--maxw);margin:0 auto;padding:110px 20px}
+    .kicker{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.16em;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+    .kicker::after{content:"";height:1px;width:60px;background:var(--line2)}
+    h2{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.03em;font-weight:800;margin-bottom:36px}
+    .muted{color:var(--muted)}
+    .gradient-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    /* hero */
+    .hero{min-height:100svh;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:140px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--accent);border:1px solid rgba(45,212,191,.3);background:rgba(45,212,191,.07);padding:7px 14px;border-radius:999px;margin-bottom:26px}
+    .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(45,212,191,.6);animation:pulse 2s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(45,212,191,0)}100%{box-shadow:0 0 0 0 rgba(45,212,191,0)}}
+    h1{font-size:clamp(2.6rem,6.4vw,4.7rem);line-height:1.04;letter-spacing:-.04em;font-weight:800;margin-bottom:24px}
+    .hero-lead{font-size:1.12rem;color:var(--muted);max-width:560px;margin-bottom:34px}
+    .hero-lead strong{color:var(--text)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+    .button{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:1px solid transparent}
+    .button:hover{transform:translateY(-2px)}
+    .button-primary{background:var(--grad);color:#04201c;box-shadow:0 10px 30px -10px rgba(45,212,191,.55)}
+    .button-ghost{border-color:var(--line2);color:var(--text)}
+    .button-ghost:hover{background:rgba(255,255,255,.05)}
+    .stats{display:grid;grid-template-columns:repeat(3,auto);gap:0;justify-content:start;border:1px solid var(--line);border-radius:var(--radius);background:rgba(18,24,38,.6);overflow:hidden;width:fit-content;max-width:100%}
+    .stat{padding:14px 24px;border-right:1px solid var(--line)}
+    .stat:last-child{border:none}
+    .stat b{display:block;font-size:1.5rem;letter-spacing:-.02em;font-weight:800}
+    .stat span{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;color:var(--muted)}
+
+    .hero-visual{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin-inline:auto;display:grid;place-items:center}
+    .orbit{position:absolute;border-radius:50%;border:1px dashed var(--line2)}
+    .orbit-one{inset:6%;animation:spin 40s linear infinite}
+    .orbit-two{inset:22%;animation:spin 28s linear infinite reverse;border-color:rgba(45,212,191,.35)}
+    .orbit::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}
+    .orbit-two::after{background:var(--accent2);box-shadow:0 0 16px var(--accent2)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .core{position:relative;width:42%;aspect-ratio:1;border-radius:28%;background:linear-gradient(145deg,#161f33,#0d1220);border:1px solid var(--line2);display:grid;place-content:center;text-align:center;box-shadow:0 0 80px -10px rgba(129,140,248,.4)}
+    .core span{font-size:2.4rem;font-weight:800;letter-spacing:-.04em}
+    .core small{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;color:var(--muted)}
+    .float-tag{position:absolute;font-family:'DM Mono',monospace;font-size:.74rem;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line2);animation:float 6s ease-in-out infinite}
+    .tag-python{top:10%;left:2%}.tag-ai{top:20%;right:-2%;animation-delay:-2s}.tag-data{bottom:14%;left:0;animation-delay:-4s}.tag-code{bottom:8%;right:10%;animation-delay:-1s;color:var(--accent)}
+    @keyframes float{50%{transform:translateY(-10px)}}
+    .visual-caption{position:absolute;bottom:-6px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--muted)}
+
+    /* sobre mí */
+    .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+    .about-main{font-size:1.15rem;color:#c3ccdb}
+    .about-note{display:flex;gap:16px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+    .note-icon{color:var(--accent);font-size:1.4rem}
+    .about-note p{color:var(--muted);font-size:.97rem}
+
+    /* habilidades */
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill-card{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);transition:transform .25s,border-color .25s}
+    .skill-card:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.45)}
+    .skill-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(45,212,191,.1);color:var(--accent);margin-bottom:16px;font-size:1.1rem}
+    .skill-card h3{font-size:1.05rem;margin-bottom:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:7px}
+    .chips span{font-family:'DM Mono',monospace;font-size:.72rem;padding:5px 10px;border-radius:8px;background:var(--bg2);border:1px solid var(--line);color:#b9c4d6}
+    .small-note{margin-top:22px;font-size:.82rem;color:var(--muted);max-width:720px}
+
+    /* proyectos */
+    .projects-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:10px}
+    .projects-heading p{color:var(--muted);max-width:420px;margin-bottom:36px}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+    .filter{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.06em;padding:8px 16px;border-radius:999px;border:1px solid var(--line2);background:none;color:var(--muted);cursor:pointer;transition:.2s}
+    .filter:hover{color:var(--text)}
+    .filter[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+    .project-list{display:grid;grid-template-columns:1fr;gap:18px}
+    .project-card>p,.highlights{max-width:760px}
+    .media{display:grid;gap:14px;margin:6px 0 22px}
+    .media.cols-3{grid-template-columns:repeat(3,1fr)}
+    .media figure{margin:0}
+    .zoom{display:block;width:100%;padding:0;cursor:zoom-in;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--bg2);transition:border-color .2s,transform .2s}
+    .zoom:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .zoom img{display:block;width:100%;height:auto}
+    .media.cols-3 .zoom img{aspect-ratio:4/3;object-fit:contain}
+    .media figcaption{margin-top:8px;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--muted)}
+    dialog.lightbox{border:1px solid var(--line2);border-radius:16px;background:var(--card);color:var(--text);padding:16px;max-width:min(1100px,94vw);max-height:92vh;margin:auto;overflow:auto}
+    dialog.lightbox::backdrop{background:rgba(5,7,12,.86);backdrop-filter:blur(4px)}
+    dialog.lightbox img{display:block;max-width:100%;max-height:74vh;margin:0 auto;border-radius:10px;background:#fff}
+    dialog.lightbox p{margin-top:12px;font-size:.85rem;color:var(--muted);text-align:center}
+    .lb-close{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);background:var(--bg);color:var(--text);font-size:1rem;cursor:pointer}
+    .lb-close:hover{border-color:var(--accent);color:var(--accent)}
+    .project-card{position:relative;display:flex;flex-direction:column;padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);transition:transform .25s,border-color .25s;overflow:hidden}
+    .project-card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(45,212,191,.1),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+    .project-card:hover{transform:translateY(-4px);border-color:var(--line2)}
+    .project-card:hover::before{opacity:1}
+    .project-card.hide{display:none}
+    .project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .project-number{font-family:'DM Mono',monospace;color:var(--muted);font-size:.8rem}
+    .project-status{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;padding:5px 10px;border-radius:999px;border:1px solid rgba(45,212,191,.4);color:var(--accent)}
+    .status-progress{border-color:rgba(251,191,36,.45);color:var(--warn)}
+    .project-card h3{font-size:1.3rem;letter-spacing:-.02em;line-height:1.25;margin-bottom:12px}
+    .project-card p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+    .highlights{list-style:none;display:grid;gap:7px;margin-bottom:20px}
+    .highlights li{font-size:.88rem;color:#b9c4d6;padding-left:20px;position:relative}
+    .highlights li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+    .metric{display:flex;align-items:baseline;gap:12px;padding:14px 18px;border-radius:14px;background:linear-gradient(120deg,rgba(45,212,191,.1),rgba(129,140,248,.1));border:1px solid rgba(45,212,191,.25);margin-bottom:18px}
+    .metric b{font-size:2rem;letter-spacing:-.03em}
+    .metric span{font-size:.8rem;color:var(--muted)}
+    .project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+    .project-tags span{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.06em;padding:4px 9px;border-radius:6px;background:var(--bg2);border:1px solid var(--line);color:#9fb0c8}
+    .project-foot{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;color:var(--muted)}
+
+    /* formación */
+    .education-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .education-row h2{margin:0}
+    .education-detail{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+    .edu-year{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--accent)}
+    .education-detail h3{margin:8px 0;font-size:1.2rem}
+    .education-detail p{color:var(--muted)}
+
+    /* contacto */
+    .contact{text-align:center}
+    .contact .kicker{justify-content:center}
+    .contact-content{max-width:760px;margin:0 auto}
+    .contact h2{font-size:clamp(2.2rem,5.4vw,3.8rem)}
+    .contact-content>p{color:var(--muted);margin-bottom:34px}
+    .contact-links{display:grid;gap:12px;text-align:left}
+    .contact-link{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);transition:.25s;flex-wrap:wrap}
+    a.contact-link:hover{border-color:rgba(45,212,191,.5);transform:translateX(4px)}
+    .contact-link span{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.14em;color:var(--muted)}
+    .contact-link strong{font-weight:600}
+    .copy-btn{font-family:'DM Mono',monospace;font-size:.7rem;background:none;border:1px solid var(--line2);color:var(--text);padding:6px 12px;border-radius:8px;cursor:pointer}
+    .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+    footer{max-width:var(--maxw);margin:0 auto;padding:30px 20px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--muted)}
+    footer a:hover{color:var(--accent)}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;padding-top:120px;min-height:auto}
+      .hero-visual{max-width:340px;order:-1}
+      .about-grid,.education-row{grid-template-columns:1fr}
+      .skill-grid{grid-template-columns:repeat(2,1fr)}
+      .media.cols-3{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .menu-toggle{display:block}
+      nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;padding:14px 20px 20px;background:rgba(10,13,20,.97);border-bottom:1px solid var(--line);display:none}
+      nav.open{display:flex}
+      nav a{padding:14px;font-size:1rem}
+      .section{padding:80px 20px}
+      .skill-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr 1fr}
+      .stat{padding:12px 14px}
+      .brand-sub{display:none}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="glow g1" aria-hidden="true"></div><div class="glow g2" aria-hidden="true"></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#inicio" aria-label="Dylan Meza, inicio"><span class="brand-mark">DM</span><span>DYLAN MEZA<span class="brand-sub">PORTAFOLIO / 2026</span></span></a>
+    <nav id="nav" aria-label="Principal">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#formacion">Formación</a>
+      <a href="#contacto" class="nav-cta">Contacto ↗</a>
+    </nav>
+    <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">☰</button>
+  </header>
+
+  <main id="contenido">
+    <section class="hero section" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> DISPONIBLE PARA NUEVOS RETOS</p>
+        <h1>Ideas que se<br>convierten en <span class="gradient-text">soluciones.</span></h1>
+        <p class="hero-lead">Soy <strong>Dylan Meza</strong>, egresado de Ingeniería Informática y de Sistemas. Desarrollo soluciones tecnológicas que conectan software, datos e inteligencia artificial.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyectos">Explorar proyectos ↘</a>
+          <a class="button button-ghost" href="#contacto">Contactarme ↗</a>
+        </div>
+        <div class="stats" aria-label="Resumen">
+          <div class="stat"><b data-count="3">3</b><span>PROYECTOS</span></div>
+          <div class="stat"><b data-count="83">83</b><span>CLASES (ML)</span></div>
+          <div class="stat"><b data-count="99.29" data-dec="2" data-suffix="%">99.29%</b><span>ACCURACY</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Ilustración abstracta tecnológica">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="core"><span>DM</span><small>BUILD / LEARN / IMPROVE</small></div>
+        <span class="float-tag tag-python">Python</span>
+        <span class="float-tag tag-ai">Machine Learning</span>
+        <span class="float-tag tag-data">Data</span>
+        <span class="float-tag tag-code">&lt;/&gt;</span>
+        <div class="visual-caption">CUSCO, PERÚ · SOFTWARE · DATA · AI</div>
+      </div>
+    </section>
+
+    <section class="section about reveal" id="sobre-mi">
+      <div class="kicker">01 / PERFIL</div>
+      <h2>Curiosidad técnica.<br><span class="muted">Enfoque en resolver.</span></h2>
+      <div class="about-grid">
+        <p class="about-main">Soy egresado de Ingeniería Informática y de Sistemas de la Universidad Nacional de San Antonio Abad del Cusco. Disfruto aprender nuevas tecnologías, experimentar con datos y construir herramientas que ayuden a simplificar procesos.</p>
+        <div class="about-note"><span class="note-icon">✳</span><p>Me adapto a nuevos desafíos, comparto ideas y busco aportar con pensamiento analítico, iniciativa y trabajo en equipo.</p></div>
+      </div>
+    </section>
+
+    <section class="section skills reveal" id="habilidades">
+      <div class="kicker">02 / CAJA DE HERRAMIENTAS</div>
+      <h2>Tecnologías y <span class="muted">habilidades.</span></h2>
+      <div class="skill-grid">
+        <article class="skill-card"><div class="skill-icon">⌘</div><h3>Desarrollo</h3><div class="chips"><span>Python</span><span>Java</span><span>C/C++</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div></article>
+        <article class="skill-card"><div class="skill-icon">◈</div><h3>IA y aprendizaje automático</h3><div class="chips"><span>Scikit-learn</span><span>TensorFlow/Keras</span><span>CNN</span><span>ResNet</span><span>SVM</span></div></article>
+        <article class="skill-card"><div class="skill-icon">▤</div><h3>Datos y bases de datos</h3><div class="chips"><span>SQL</span><span>PostgreSQL</span><span>Pandas</span><span>NumPy</span><span>Excel</span></div></article>
+        <article class="skill-card"><div class="skill-icon">⟳</div><h3>Integración y automatización</h3><div class="chips"><span>Odoo</span><span>XML-RPC</span><span>APIs</span><span>Automatización</span></div></article>
+        <article class="skill-card"><div class="skill-icon">◇</div><h3>Web y plataformas</h3><div class="chips"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span></div></article>
+        <article class="skill-card"><div class="skill-icon">✓</div><h3>Trabajo técnico</h3><div class="chips"><span>Pruebas funcionales</span><span>Análisis de resultados</span><span>Documentación</span></div></article>
+      </div>
+      <p class="small-note">Las tecnologías se presentan según el trabajo realizado en proyectos académicos y prácticos; el nivel de experiencia puede variar según cada herramienta.</p>
+    </section>
+
+    <section class="section projects reveal" id="proyectos">
+      <div class="kicker">03 / TRABAJO SELECCIONADO</div>
+      <div class="projects-heading">
+        <h2>Proyectos que <span class="muted">he explorado.</span></h2>
+        <p>Una selección de experiencias académicas y prácticas en desarrollo de software, datos e inteligencia artificial.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar proyectos">
+        <button class="filter" data-filter="all" aria-pressed="true">TODOS</button>
+        <button class="filter" data-filter="ia" aria-pressed="false">IA / DATOS</button>
+        <button class="filter" data-filter="software" aria-pressed="false">SOFTWARE / WEB</button>
+      </div>
+      <div class="project-list">
+        <article class="project-card" data-cat="ia">
+          <div class="project-top"><span class="project-number">01</span><span class="project-status">EXPERIMENTACIÓN</span></div>
+          <h3>Clasificación de variedades de papa</h3>
+          <div class="metric"><b>99.29%</b><span>accuracy con ResNet + SVM · 83 clases</span></div>
+          <p>Preparación de imágenes, entrenamiento y evaluación de modelos ResNet, SVM y Random Forest. El enfoque combinado de características ResNet + SVM alcanzó aproximadamente 99.29 % de accuracy en las pruebas realizadas.</p>
+          <div class="media cols-3">
+            <figure><button type="button" class="zoom" data-src="img/papa-1.jpeg" data-cap="Dispersión de dos tipos según circularidad y relación de aspecto"><img src="img/papa-1.jpeg" width="738" height="552" loading="lazy" alt="Gráfico de dispersión de dos tipos de papa según circularidad y relación de aspecto"></button><figcaption>Dispersión · 2 tipos</figcaption></figure>
+            <figure><button type="button" class="zoom" data-src="img/papa-2.jpeg" data-cap="Matriz de confusión de la clasificación (83 clases)"><img src="img/papa-2.jpeg" width="737" height="632" loading="lazy" alt="Matriz de confusión de la clasificación de variedades de papa"></button><figcaption>Matriz de confusión</figcaption></figure>
+            <figure><button type="button" class="zoom" data-src="img/papa-3.jpeg" data-cap="Dispersión de todos los tipos según circularidad y relación de aspecto"><img src="img/papa-3.jpeg" width="705" height="523" loading="lazy" alt="Gráfico de dispersión de todos los tipos de papa según circularidad y relación de aspecto"></button><figcaption>Dispersión · todos los tipos</figcaption></figure>
+          </div>
+          <div class="project-tags"><span>MACHINE LEARNING</span><span>COMPUTER VISION</span><span>PYTHON</span></div>
+          <div class="project-foot">IA / CLASIFICACIÓN DE IMÁGENES</div>
+        </article>
+
+        <article class="project-card" data-cat="ia">
+          <div class="project-top"><span class="project-number">02</span><span class="project-status status-progress">EN DESARROLLO</span></div>
+          <h3>Investigación sobre análisis de lesiones cutáneas</h3>
+          <p>Propuesta de investigación para evaluar enfoques de inteligencia artificial en la clasificación de imágenes dermatológicas.</p>
+          <ul class="highlights"><li>Redes convolucionales y Vision Transformers</li><li>Técnicas de preprocesamiento</li><li>Métricas de evaluación</li></ul>
+          <div class="media">
+            <figure><button type="button" class="zoom" data-src="img/piel-flujo.jpg" data-cap="Flujo de trabajo de la investigación: de la recolección de datos a la implementación"><img src="img/piel-flujo.jpg" width="1219" height="686" loading="lazy" alt="Diagrama del flujo de trabajo: recolección de datos, mejora de calidad, preprocesamiento, validación, implementación de modelos, entrenamiento, análisis e implementación"></button><figcaption>Flujo de trabajo de la investigación</figcaption></figure>
+          </div>
+          <div class="project-tags"><span>DEEP LEARNING</span><span>CNN</span><span>VISION TRANSFORMER</span></div>
+          <div class="project-foot">INVESTIGACIÓN / IA MÉDICA</div>
+        </article>
+
+        <article class="project-card" data-cat="software">
+          <div class="project-top"><span class="project-number">03</span><span class="project-status">PROYECTO PRÁCTICO</span></div>
+          <h3>Plataforma web para cursos</h3>
+          <p>Configuración y personalización de un sitio web orientado a la presentación y comercialización de cursos, explorando herramientas de WordPress, WooCommerce y Elementor.</p>
+          <div class="project-tags"><span>WORDPRESS</span><span>WOOCOMMERCE</span><span>ELEMENTOR</span></div>
+          <div class="project-foot">DESARROLLO WEB / E-COMMERCE</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section education reveal" id="formacion">
+      <div class="kicker">04 / FORMACIÓN</div>
+      <div class="education-row">
+        <h2>Aprender para <span class="muted">construir.</span></h2>
+        <div class="education-detail"><span class="edu-year">UNSAAC</span><h3>Universidad Nacional de San Antonio Abad del Cusco</h3><p>Ingeniería Informática y de Sistemas · Egresado</p></div>
+      </div>
+    </section>
+
+    <section class="contact section reveal" id="contacto">
+      <div class="kicker">05 / CONVERSEMOS</div>
+      <div class="contact-content">
+        <h2>¿Tienes un reto<br>interesante? <span class="gradient-text">Hablemos.</span></h2>
+        <p>Estoy abierto a oportunidades para aprender, colaborar y aportar en proyectos tecnológicos.</p>
+        <div class="contact-links">
+          <!-- TODO: reemplaza estos datos por los tuyos antes de publicar -->
+          <div class="contact-link"><span>EMAIL</span><strong id="emailText">dylanmeza0802@gmail.com</strong><button class="copy-btn" id="copyBtn" type="button">COPIAR</button></div>
+          <a href="www.linkedin.com/in/dylan-patrick-meza-challco-757035308" target="_blank" rel="noopener noreferrer" class="contact-link"><span>LINKEDIN</span><strong>Dylan Patrick Meza Challco ↗</strong></a>
+          <div class="contact-link"><span>UBICACIÓN</span><strong>Cusco, Perú</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#inicio" aria-label="Volver al inicio"><span class="brand-mark">DM</span></a><span>© 2026 DYLAN MEZA · PORTAFOLIO PERSONAL</span><a href="#inicio">VOLVER ARRIBA ↑</a></footer>
+
+  <dialog class="lightbox" id="lb" aria-label="Imagen ampliada">
+    <button class="lb-close" type="button" id="lbClose" aria-label="Cerrar">✕</button>
+    <img id="lbImg" src="" alt="">
+    <p id="lbCap"></p>
+  </dialog>
+
+  <script>
+    (function(){
+      var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+      var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // menú móvil
+      var btn=$('#menuBtn'), nav=$('#nav');
+      function closeMenu(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='☰'}
+      btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'✕':'☰'});
+      $$('a',nav).forEach(function(a){a.addEventListener('click',closeMenu)});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+
+      // scroll: header + barra de progreso
+      var top=$('#topbar'), bar=$('#progress');
+      function onScroll(){
+        var y=window.scrollY, h=document.documentElement.scrollHeight-window.innerHeight;
+        top.classList.toggle('scrolled',y>10);
+        bar.style.width=(h>0?y/h*100:0)+'%';
+      }
+      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+      // reveal + link activo
+      if('IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+        $$('.reveal').forEach(function(el){io.observe(el)});
+        var links=$$('nav a[href^="#"]:not(.nav-cta)');
+        var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+        ['sobre-mi','habilidades','proyectos','formacion'].forEach(function(id){var s=document.getElementById(id);if(s)so.observe(s)});
+      }else{$$('.reveal').forEach(function(el){el.classList.add('in')})}
+
+      // contadores
+      if(!reduce){
+        $$('[data-count]').forEach(function(el){
+          var end=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||0,10), suf=el.dataset.suffix||'', t0=null;
+          function step(t){t0=t0||t;var p=Math.min((t-t0)/1200,1),v=end*(1-Math.pow(1-p,3));el.textContent=v.toFixed(dec)+suf;if(p<1)requestAnimationFrame(step)}
+          requestAnimationFrame(step);
+        });
+      }
+
+      // filtros de proyectos
+      $$('.filter').forEach(function(f){
+        f.addEventListener('click',function(){
+          $$('.filter').forEach(function(x){x.setAttribute('aria-pressed',x===f)});
+          var c=f.dataset.filter;
+          $$('.project-card').forEach(function(card){card.classList.toggle('hide',c!=='all'&&card.dataset.cat!==c)});
+        });
+      });
+
+      // brillo que sigue al mouse en tarjetas
+      $$('.project-card').forEach(function(card){
+        card.addEventListener('pointermove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px')});
+      });
+
+      // ampliar imágenes
+      var lb=$('#lb'), lbImg=$('#lbImg'), lbCap=$('#lbCap');
+      $$('.zoom').forEach(function(b){
+        b.addEventListener('click',function(){
+          if(!lb.showModal){window.open(b.dataset.src,'_blank');return}
+          lbImg.src=b.dataset.src;lbImg.alt=$('img',b).alt;lbCap.textContent=b.dataset.cap||'';lb.showModal();
+        });
+      });
+      $('#lbClose').addEventListener('click',function(){lb.close()});
+      lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+
+      // copiar correo
+      var cb=$('#copyBtn');
+      cb.addEventListener('click',function(){
+        var t=$('#emailText').textContent;
+        (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){cb.textContent='¡COPIADO!'},function(){cb.textContent='SELECCIONA Y COPIA'});
+        setTimeout(function(){cb.textContent='COPIAR'},1800);
+      });
+    })();
+  </script>
+</body>
+</html>
